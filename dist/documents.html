@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Game Documents — Everyday Cool Arcade</title>
+<style>
+  :root {
+    --cream: #f8f6ef;
+    --paper: #fffdf7;
+    --ink: #232733;
+    --ink-soft: #4c5265;
+    --orange: #eb694b;
+    --orange-dark: #c94f33;
+    --line: #e3ddcd;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--cream);
+    color: var(--ink);
+    font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+    line-height: 1.5;
+  }
+  .wrap { max-width: 1180px; margin: 0 auto; padding: 0 24px 64px; }
+
+  header.hero { padding: 56px 0 8px; text-align: left; }
+  .eyebrow {
+    letter-spacing: 0.22em;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--orange-dark);
+    text-transform: uppercase;
+    margin: 0 0 10px;
+  }
+  h1 {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(40px, 6vw, 64px);
+    line-height: 1.05;
+    margin: 0 0 14px;
+    font-weight: 700;
+  }
+  h1 em { color: var(--orange); font-style: italic; }
+  .lead {
+    font-size: 19px;
+    color: var(--ink-soft);
+    max-width: 46em;
+    margin: 0 0 18px;
+  }
+  .counts {
+    display: inline-block;
+    background: var(--ink);
+    color: var(--cream);
+    border-radius: 999px;
+    padding: 6px 16px;
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+  .tip { font-size: 14px; color: var(--ink-soft); max-width: 46em; }
+  .tip a { color: var(--orange-dark); font-weight: 600; }
+
+  ul.doc-list { list-style: none; margin: 26px 0 0; padding: 0; }
+  ul.doc-list li {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 14px 18px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+    box-shadow: 0 1px 3px rgba(35, 39, 51, 0.06);
+  }
+  .doc-title {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 18px;
+    font-weight: 700;
+    flex: 1;
+  }
+  a.doc-link {
+    color: var(--ink);
+    text-decoration: none;
+    font-weight: 600;
+    padding: 7px 14px;
+    border: 1.5px solid var(--ink);
+    border-radius: 9px;
+    font-size: 14.5px;
+  }
+  a.doc-link:hover { background: var(--ink); color: var(--cream); }
+  .no-lesson {
+    font-size: 13px;
+    color: var(--ink-soft);
+    border: 1.5px dashed var(--line);
+    padding: 7px 12px;
+    border-radius: 9px;
+  }
+
+  footer {
+    margin-top: 64px;
+    border-top: 1px solid var(--line);
+    padding-top: 20px;
+    color: var(--ink-soft);
+    font-size: 14.5px;
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="hero">
+    <p class="eyebrow">Everyday Cool Arcade</p>
+    <h1>Game <em>Documents</em></h1>
+    <p class="lead">Every game keeps a back door: a lesson page that explains the physics — or the
+      method — the game runs on, shows the math with worked examples, and tells how the game itself
+      was built, in plain language. This is the shelf of all of them, one per game.</p>
+    <span class="counts">35 games · 34 lessons</span>
+    <p class="tip"><a href="index.html">← Back to the shelf</a></p>
+  </header>
+
+  <section>
+    <ul class="doc-list">
+      <li><span class="doc-title">Siege Slingshot Demolition</span> <a class="doc-link" href="games/siege-demolition/siege-demolition-lesson.html">📖 Read the lesson</a></li>
+      <li><span class="doc-title">Bridge Builder — Truss Stress Sim</span> <a class="doc-link" href="games/bridge-builder-truss/bridge-builder-truss-lesson.html">📖 Read the lesson</a></li>
+      <li><span class="doc-title">Orbital Pinball</span> <a class="doc-link" href="games/orbital-pinball/orbital-pinball-lesson.html">📖 Read the lesson</a></li>
+      <li><span class="doc-title">Orbital Slingshot — Gravity Golf</span> <a class="doc-link" href="games/orbital-gravity-golf/orbital-gravity-golf-lesson.html">📖 Read the lesson</a></li>
+      <li><span class="doc-title">Lunar Lander — Thruster Cave</span> <a class="doc-link" href="games/lunar-lander-cave/lunar-lander-cave-lesson.html">📖 Read the lesson</a></li>
+      <li><span class="doc-title">Docking — Orbital Rendezvous</span> <a class="doc-link" href="games/docking/docking-lesson.html">📖 Read the lesson</a></li>
+      <li><span class="doc-title">2D Hill-Climb — Suspension Trials</span> <a class="doc-link" href="games/hill-climb-suspension/hill-climb-suspension-lesson.html">📖 Read the lesson</a></li>
+      <li><span class="doc-title">Stage It</span> <a class="doc-link" href="games/stage-it/stage-it-lesson.html">📖 Read the lesson</a></li>
+      <li><span class="doc-title">Jelly Soft-Body Platformer</span> <a class="doc-link" href="games/jelly-softbody-platformer/jelly-softbody-platformer-lesson.html">📖 Read the lesson</a></li>
+      <li><span class="doc-title">Falling Sand — Cellular Physics Lab</span> <a class="doc-link" href="games/falling-sand-sandbox/falling-sand-sandbox-lesson.html">📖 Read the lesson</a></li>
+      <li><span class="doc-title">Pendulum Grapple Swinger</span> <a class="doc-link" href="games/pendulum-grapple-swinger/pendulum-grapple-swinger-lesson.html">📖 Read the lesson</a></li>
+      <li><span class="doc-title">Marble Run — Rube Goldberg Builder</span> <a class="doc-link" href="games/marble-run/marble-run-lesson.html">📖 Read the lesson</a></li>
+      <li><span class="doc-title">Ballast</span> <a class="doc-link" href="games/ballast/ballast-lesson.html">📖 Read the lesson</a></li>
+      <li><span class="doc-title">Air Hockey &amp; Curl-Shot Shuffleboard</span> <a class="doc-link" href="games/air-hockey-curl/air-hockey-curl-lesson.html">📖 Read the lesson</a></li>
+      <li><span class="doc-title">2D Ragdoll Archery Duel</span> <a class="doc-link" href="games/ragdoll-archery-duel/ragdoll-archery-duel-lesson.html">📖 Read the lesson</a></li>
+      <li><span class="doc-title">SVG Pool Table — Angles &amp; Force Lab</span> <a class="doc-link" href="games/pool-table-physics/pool-table-physics-lesson.html">📖 Read the lesson</a></li>
+      <li><span class="doc-title">Tensor-Tris</span> <a class="doc-link" href="games/tensor-tris/tensor-tris-lesson.html">📖 Read the lesson</a></li>
+      <li><span class="doc-title">Laser &amp; Mirrors</span> <a class="doc-link" href="games/laser-mirrors/laser-mirrors-lesson.html">📖 Read the lesson</a></li>
+      <li><span class="doc-title">Tune the String</span> <a class="doc-link" href="games/tune-the-string/tune-the-string-lesson.html">📖 Read the lesson</a></li>
+      <li><span class="doc-title">Shake Table</span> <a class="doc-link" href="games/shake-table/shake-table-lesson.html">📖 Read the lesson</a></li>
+      <li><span class="doc-title">Stack-a-Bot</span> <span class="no-lesson">📖 Lesson in the works</span></li>
+      <li><span class="doc-title">Don't Cook the LED</span> <a class="doc-link" href="games/dont-cook-the-led/dont-cook-the-led-lesson.html">📖 Read the lesson</a></li>
+      <li><span class="doc-title">Wire the Adder</span> <a class="doc-link" href="games/wire-the-adder/wire-the-adder-lesson.html">📖 Read the lesson</a></li>
+      <li><span class="doc-title">Find the Fault</span> <a class="doc-link" href="games/find-the-fault/find-the-fault-lesson.html">📖 Read the lesson</a></li>
+      <li><span class="doc-title">Shelf It!</span> <a class="doc-link" href="games/shelf-it/dewey-game-lesson.html">📖 Read the lesson</a></li>
+      <li><span class="doc-title">Go Thataway</span> <a class="doc-link" href="games/go-thataway/go-thataway-lesson.html">📖 Read the lesson</a></li>
+      <li><span class="doc-title">Balance It</span> <a class="doc-link" href="games/balance-it/balance-it-lesson.html">📖 Read the lesson</a></li>
+      <li><span class="doc-title">Pass It On</span> <a class="doc-link" href="games/pass-it-on/pass-it-on-lesson.html">📖 Read the lesson</a></li>
+      <li><span class="doc-title">Route It</span> <a class="doc-link" href="games/route-it/route-it-lesson.html">📖 Read the lesson</a></li>
+      <li><span class="doc-title">The Boring Bet Wins</span> <a class="doc-link" href="games/the-boring-bet-wins/the-boring-bet-wins-lesson.html">📖 Read the lesson</a></li>
+      <li><span class="doc-title">Catch the Pass</span> <a class="doc-link" href="games/catch-the-pass/catch-the-pass-lesson.html">📖 Read the lesson</a></li>
+      <li><span class="doc-title">Anchors</span> <a class="doc-link" href="games/anchors/anchors-lesson.html">📖 Read the lesson</a></li>
+      <li><span class="doc-title">Corrected by Halves</span> <a class="doc-link" href="games/corrected-by-halves/corrected-by-halves-lesson.html">📖 Read the lesson</a></li>
+      <li><span class="doc-title">Zenith Othello</span> <a class="doc-link" href="games/zenith-othello/zenith-othello-lesson.html">📖 Read the lesson</a></li>
+      <li><span class="doc-title">Zenith Chess</span> <a class="doc-link" href="games/zenith-chess/zenith-chess-lesson.html">📖 Read the lesson</a></li>
+    </ul>
+  </section>
+
+  <footer>
+    <p>Part of Everyday Cool — the full workshops live at caeled.github.io/everyday-cool ·
+      Free to explore. Built with AI assistance. Curated by a human.</p>
+  </footer>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Everyday Cool Arcade</title>
+<style>
+  :root {
+    --cream: #f8f6ef;
+    --paper: #fffdf7;
+    --ink: #232733;
+    --ink-soft: #4c5265;
+    --orange: #eb694b;
+    --orange-dark: #c94f33;
+    --line: #e3ddcd;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--cream);
+    color: var(--ink);
+    font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+    line-height: 1.5;
+  }
+  .wrap { max-width: 1180px; margin: 0 auto; padding: 0 24px 64px; }
+
+  header.hero {
+    padding: 56px 0 8px;
+    text-align: left;
+  }
+  .eyebrow {
+    letter-spacing: 0.22em;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--orange-dark);
+    text-transform: uppercase;
+    margin: 0 0 10px;
+  }
+  h1 {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(40px, 6vw, 64px);
+    line-height: 1.05;
+    margin: 0 0 14px;
+    font-weight: 700;
+  }
+  h1 em { color: var(--orange); font-style: italic; }
+  .lead {
+    font-size: 19px;
+    color: var(--ink-soft);
+    max-width: 46em;
+    margin: 0 0 18px;
+  }
+  .hero-photo {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 14px;
+    margin: 20px 0 6px;
+  }
+  .counts {
+    display: inline-block;
+    background: var(--ink);
+    color: var(--cream);
+    border-radius: 999px;
+    padding: 6px 16px;
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+  .tip { font-size: 14px; color: var(--ink-soft); max-width: 46em; }
+  .tip strong { color: var(--ink); }
+
+  nav.groups {
+    display: flex; flex-wrap: wrap; gap: 8px;
+    margin: 26px 0 6px;
+  }
+  nav.groups a {
+    color: var(--ink);
+    text-decoration: none;
+    border: 1.5px solid var(--ink);
+    border-radius: 999px;
+    padding: 5px 14px;
+    font-size: 14px;
+    font-weight: 600;
+    background: var(--paper);
+  }
+  nav.groups a:hover { background: var(--ink); color: var(--cream); }
+
+  section.group { margin-top: 44px; }
+  section.group h2 {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 30px;
+    margin: 0 0 4px;
+  }
+  section.group .group-note { color: var(--ink-soft); margin: 0 0 18px; }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 18px;
+  }
+  .card {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 20px 20px 16px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 1px 3px rgba(35, 39, 51, 0.06);
+  }
+  .card .icon { font-size: 34px; line-height: 1; margin-bottom: 10px; }
+  .card h3 {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 21px;
+    margin: 0 0 8px;
+    line-height: 1.25;
+  }
+  .card p.hook { margin: 0 0 12px; color: var(--ink-soft); font-size: 15px; flex: 1; }
+  .card .concepts { font-size: 12.5px; color: var(--ink-soft); margin: 0 0 14px; }
+  .card .room {
+    font-size: 12px; font-weight: 700; letter-spacing: 0.08em;
+    text-transform: uppercase; color: var(--orange-dark); margin: 0 0 12px;
+  }
+  .actions { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+  a.btn-play {
+    background: var(--orange);
+    color: #fff;
+    text-decoration: none;
+    font-weight: 700;
+    padding: 9px 20px;
+    border-radius: 9px;
+    font-size: 15px;
+  }
+  a.btn-play:hover { background: var(--orange-dark); }
+  a.btn-lesson {
+    color: var(--ink);
+    text-decoration: none;
+    font-weight: 600;
+    padding: 8px 16px;
+    border: 1.5px solid var(--ink);
+    border-radius: 9px;
+    font-size: 15px;
+    background: transparent;
+  }
+  a.btn-lesson:hover { background: var(--ink); color: var(--cream); }
+  .no-lesson {
+    font-size: 13px;
+    color: var(--ink-soft);
+    border: 1.5px dashed var(--line);
+    padding: 8px 14px;
+    border-radius: 9px;
+  }
+
+  footer {
+    margin-top: 64px;
+    border-top: 1px solid var(--line);
+    padding-top: 20px;
+    color: var(--ink-soft);
+    font-size: 14.5px;
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="hero">
+    <p class="eyebrow">For the children. For the curious.</p>
+    <h1>Everyday Cool <em>Arcade</em></h1>
+    <p class="lead">Every game in the Everyday Cool collection, gathered on one shelf — and every game
+      keeps its back door attached. Play first. Then open the lesson: the physics, the math, and how
+      the game itself is built, in plain language. That is what makes an arcade a teacher can say yes to.</p>
+    <span class="counts">35 games · 34 with lessons attached</span>
+    <img class="hero-photo" src="arcade-robots.webp" alt="Two photorealistic robots playing in an arcade — one at an arcade cabinet, one at a pinball machine — under a neon Everyday Cool Arcade sign. AI-generated image.">
+    <p class="tip"><strong>Finding your way back:</strong> from any game, use the browser-style back
+      gesture — <strong>Alt + ←</strong> or your mouse's back button — to return to this shelf.
+      Lessons opened from a card read right here; several games also carry a 📖 Lesson button inside
+      the game itself.</p>
+    <nav class="groups" aria-label="Game groups">
+      <a href="#rigid">Rigid &amp; Structures</a>
+      <a href="#orbital">Orbital &amp; Space</a>
+      <a href="#soft">Soft &amp; Squishy</a>
+      <a href="#sports">Sports &amp; Spin</a>
+      <a href="#guests">Guests from Other Rooms</a>
+    </nav>
+  </header>
+
+  <section class="group" id="rigid">
+    <h2>Rigid &amp; Structures</h2>
+    <p class="group-note">Things that stand up, things that fall down, and the exact moment they decide.</p>
+    <div class="grid">
+
+      <article class="card">
+        <div class="icon">💣</div>
+        <h3>Siege Slingshot Demolition</h3>
+        <p class="hook">Launch iron boulders, cluster shots, blast bombs, and drill lances at destructible multi-material fortresses.</p>
+        <p class="concepts">Impulse p=mv · Fracture HP · Blast Shockwaves · Wind Ballistics</p>
+        <p class="room">Everyday Physics</p>
+        <div class="actions">
+          <a class="btn-play" href="games/siege-demolition/siege-demolition.html">▶ Play</a>
+          <a class="btn-lesson" href="games/siege-demolition/siege-demolition-lesson.html">📖 Lesson</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="icon">🌉</div>
+        <h3>Bridge Builder — Truss Stress Sim</h3>
+        <p class="hook">Engineer Warren trusses and suspension bridges; watch real-time tension &amp; compression heatmaps under vehicle loads.</p>
+        <p class="concepts">Axial Strain · Tension vs Compression · Strain-Limit Fracture · Truss Geometry</p>
+        <p class="room">Everyday Physics</p>
+        <div class="actions">
+          <a class="btn-play" href="games/bridge-builder-truss/bridge-builder-truss.html">▶ Play</a>
+          <a class="btn-lesson" href="games/bridge-builder-truss/bridge-builder-truss-lesson.html">📖 Lesson</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="icon">◎</div>
+        <h3>Orbital Pinball</h3>
+        <p class="hook">Classic pinball flippers, slingshots, and wormhole multiball fused with central gravity wells, orbiting moons, and repel pulses.</p>
+        <p class="concepts">480Hz Substeps · Inverse-Square Gravity · Angular Flipper Velocity</p>
+        <p class="room">Everyday Physics</p>
+        <div class="actions">
+          <a class="btn-play" href="games/orbital-pinball/orbital-pinball.html">▶ Play</a>
+          <a class="btn-lesson" href="games/orbital-pinball/orbital-pinball-lesson.html">📖 Lesson</a>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <section class="group" id="orbital">
+    <h2>Orbital &amp; Space</h2>
+    <p class="group-note">Gravity is the engine. Your job is to aim it.</p>
+    <div class="grid">
+
+      <article class="card">
+        <div class="icon">🪐</div>
+        <h3>Orbital Slingshot — Gravity Golf</h3>
+        <p class="hook">Bend probe shots around orbiting binary stars, black holes, repulsor cores, and wormholes with a live RK4 trajectory preview.</p>
+        <p class="concepts">RK4 Trajectory Preview · Gravity Assist · Test-Particle Orbits</p>
+        <p class="room">Everyday Physics</p>
+        <div class="actions">
+          <a class="btn-play" href="games/orbital-gravity-golf/orbital-gravity-golf.html">▶ Play</a>
+          <a class="btn-lesson" href="games/orbital-gravity-golf/orbital-gravity-golf-lesson.html">📖 Lesson</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="icon">🚀</div>
+        <h3>Lunar Lander — Thruster Cave</h3>
+        <p class="hook">Navigate narrow alien caverns and land safely while managing real propellant mass depletion, RCS torque, and cryo-geysers.</p>
+        <p class="concepts">Dynamic Mass &amp; TWR · RCS Torque · SAS Damping</p>
+        <p class="room">Everyday Physics</p>
+        <div class="actions">
+          <a class="btn-play" href="games/lunar-lander-cave/lunar-lander-cave.html">▶ Play</a>
+          <a class="btn-lesson" href="games/lunar-lander-cave/lunar-lander-cave-lesson.html">📖 Lesson</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="icon">🛰️</div>
+        <h3>Docking — Orbital Rendezvous</h3>
+        <p class="hook">Rendezvous with a station under real point-mass gravity — burning straight at your target bends your orbit and drifts you away. Three missions on a fuel budget: phasing, radial offset, and the real thing.</p>
+        <p class="concepts">Orbital Phasing · Relative Motion · Δv Budget</p>
+        <p class="room">Everyday Physics</p>
+        <div class="actions">
+          <a class="btn-play" href="games/docking/docking.html">▶ Play</a>
+          <a class="btn-lesson" href="games/docking/docking-lesson.html">📖 Lesson</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="icon">🏎️</div>
+        <h3>2D Hill-Climb — Suspension Trials</h3>
+        <p class="hook">Drive dune buggies, monster trucks, and moon rovers with live Hooke's-law spring-damper shocks, weight transfer, and flips.</p>
+        <p class="concepts">Hooke's Law (F=-kx-cv) · Weight Transfer · Angular Torque</p>
+        <p class="room">Everyday Physics</p>
+        <div class="actions">
+          <a class="btn-play" href="games/hill-climb-suspension/hill-climb-suspension.html">▶ Play</a>
+          <a class="btn-lesson" href="games/hill-climb-suspension/hill-climb-suspension-lesson.html">📖 Lesson</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="icon">🔥</div>
+        <h3>Stage It</h3>
+        <p class="hook">Split the fuel between two stages, drop the empty one on time, and make orbit — the rocket equation itself decides which splits can fly, and the tight level's single-stage version provably can't.</p>
+        <p class="concepts">Tsiolkovsky Δv · Staging · Gravity Losses</p>
+        <p class="room">Everyday Physics</p>
+        <div class="actions">
+          <a class="btn-play" href="games/stage-it/stage-it.html">▶ Play</a>
+          <a class="btn-lesson" href="games/stage-it/stage-it-lesson.html">📖 Lesson</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="icon">🛰️</div>
+        <h3>Catch the Pass</h3>
+        <p class="hook">Call a satellite's pass before it flies — how high it will peak, and when — then watch the umpire rule: inside the line, CALLED IT FAIR; wide of it, foul by the exact degrees. The Satellite Watch game.</p>
+        <p class="concepts">Pass Prediction · Angular Error · Peak Elevation</p>
+        <p class="room">Satellite Watch</p>
+        <div class="actions">
+          <a class="btn-play" href="games/catch-the-pass/catch-the-pass.html">▶ Play</a>
+          <a class="btn-lesson" href="games/catch-the-pass/catch-the-pass-lesson.html">📖 Lesson</a>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <section class="group" id="soft">
+    <h2>Soft &amp; Squishy</h2>
+    <p class="group-note">Springs, blobs, sand, and water — physics you can poke.</p>
+    <div class="grid">
+
+      <article class="card">
+        <div class="icon">🫧</div>
+        <h3>Jelly Soft-Body Platformer</h3>
+        <p class="hook">Squish, deflate through vents, and wall-climb using a 20-node mass-spring blob inflated by an area-pressure model.</p>
+        <p class="concepts">Area-Pressure Model · Mass-Spring Mesh · Defended Area</p>
+        <p class="room">Everyday Physics</p>
+        <div class="actions">
+          <a class="btn-play" href="games/jelly-softbody-platformer/jelly-softbody-platformer.html">▶ Play</a>
+          <a class="btn-lesson" href="games/jelly-softbody-platformer/jelly-softbody-platformer-lesson.html">📖 Lesson</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="icon">⏳</div>
+        <h3>Falling Sand — Cellular Physics Lab</h3>
+        <p class="hook">Experiment with 14 interactive elements including sand, oil, water, lava, acid, steam, plants, ice, metal, and electricity.</p>
+        <p class="concepts">Density Stratification · Phase Changes · Combustion &amp; Circuits</p>
+        <p class="room">Everyday Physics</p>
+        <div class="actions">
+          <a class="btn-play" href="games/falling-sand-sandbox/falling-sand-sandbox.html">▶ Play</a>
+          <a class="btn-lesson" href="games/falling-sand-sandbox/falling-sand-sandbox-lesson.html">📖 Lesson</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="icon">🪝</div>
+        <h3>Pendulum Grapple Swinger</h3>
+        <p class="hook">Swing across aerial chasms with rope constraints, live KE/PE energy bars, and angular-momentum boosts by reeling in mid-arc.</p>
+        <p class="concepts">Conservation of Energy · Angular Momentum L=mrv · Radial Tension</p>
+        <p class="room">Everyday Physics</p>
+        <div class="actions">
+          <a class="btn-play" href="games/pendulum-grapple-swinger/pendulum-grapple-swinger.html">▶ Play</a>
+          <a class="btn-lesson" href="games/pendulum-grapple-swinger/pendulum-grapple-swinger-lesson.html">📖 Lesson</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="icon">🔮</div>
+        <h3>Marble Run — Rube Goldberg Builder</h3>
+        <p class="hook">Construct musical chain-reaction machines with ramps, trampolines, conveyors, seesaws, pinwheels, dominoes, and wind fans.</p>
+        <p class="concepts">Rigid-Body Seesaws · Domino Cascades · Airflow Forces</p>
+        <p class="room">Everyday Physics</p>
+        <div class="actions">
+          <a class="btn-play" href="games/marble-run/marble-run.html">▶ Play</a>
+          <a class="btn-lesson" href="games/marble-run/marble-run-lesson.html">📖 Lesson</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="icon">🌊</div>
+        <h3>Ballast</h3>
+        <p class="hook">Conn a submarine by buoyancy alone — flood and blow the tanks, find the knife-edge of neutral, dive to the wreck above the crush line, and cross a density layer that lifts you without a hand on a valve.</p>
+        <p class="concepts">Archimedes' Principle · Neutral Buoyancy · Density Layers</p>
+        <p class="room">Everyday Physics</p>
+        <div class="actions">
+          <a class="btn-play" href="games/ballast/ballast.html">▶ Play</a>
+          <a class="btn-lesson" href="games/ballast/ballast-lesson.html">📖 Lesson</a>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <section class="group" id="sports">
+    <h2>Sports &amp; Spin</h2>
+    <p class="group-note">Familiar games, honest physics.</p>
+    <div class="grid">
+
+      <article class="card">
+        <div class="icon">🏒</div>
+        <h3>Air Hockey &amp; Curl-Shot Shuffleboard</h3>
+        <p class="hook">Play high-speed Air Hockey against adaptive AI or curve curling stones across friction zones using Magnus spin.</p>
+        <p class="concepts">Magnus Spin Effect · Restitution (e) · Friction Zones</p>
+        <p class="room">Everyday Physics</p>
+        <div class="actions">
+          <a class="btn-play" href="games/air-hockey-curl/air-hockey-curl.html">▶ Play</a>
+          <a class="btn-lesson" href="games/air-hockey-curl/air-hockey-curl-lesson.html">📖 Lesson</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="icon">🏹</div>
+        <h3>2D Ragdoll Archery Duel</h3>
+        <p class="hook">Articulated Verlet ragdoll archers duel across castle towers and cliffs with wind-compensated trajectories and limb knockback.</p>
+        <p class="concepts">Verlet Constraints · Projectile Windage · Momentum Impulse</p>
+        <p class="room">Everyday Physics</p>
+        <div class="actions">
+          <a class="btn-play" href="games/ragdoll-archery-duel/ragdoll-archery-duel.html">▶ Play</a>
+          <a class="btn-lesson" href="games/ragdoll-archery-duel/ragdoll-archery-duel-lesson.html">📖 Lesson</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="icon">🎱</div>
+        <h3>SVG Pool Table — Angles &amp; Force Lab</h3>
+        <p class="hook">Precision billiards physics lab visualizing cut angles, tangent lines, elastic collisions, and cushion rebounds.</p>
+        <p class="concepts">Near-Elastic Collisions · Tangent Angles · Force Vectors</p>
+        <p class="room">Everyday Physics</p>
+        <div class="actions">
+          <a class="btn-play" href="games/pool-table-physics/pool-table-physics.html">▶ Play</a>
+          <a class="btn-lesson" href="games/pool-table-physics/pool-table-physics-lesson.html">📖 Lesson</a>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <section class="group" id="guests">
+    <h2>Guests from Other Rooms</h2>
+    <p class="group-note">Games that live in other workshops, visiting the arcade.</p>
+    <div class="grid">
+
+      <article class="card">
+        <div class="icon">🧩</div>
+        <h3>Tensor-Tris</h3>
+        <p class="hook">Interactive spatial reasoning and physics-inspired puzzle arcade experience.</p>
+        <p class="concepts">Spatial Geometry · Transformations · Arcade Mechanics</p>
+        <p class="room">The Games Room</p>
+        <div class="actions">
+          <a class="btn-play" href="games/tensor-tris/tensor-tris.html">▶ Play</a>
+          <a class="btn-lesson" href="games/tensor-tris/tensor-tris-lesson.html">📖 Lesson</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="icon">🤖</div>
+        <h3>Stack-a-Bot</h3>
+        <p class="hook">The Games Room's own falling-parts game: steer crates of robot parts as they fall, clear rows, and light up the bench robot — twelve rows completes it. Its page also carries the room's build-a-game workshop.</p>
+        <p class="concepts">Falling Parts · Line Clears · The Game Loop</p>
+        <p class="room">The Games Room</p>
+        <div class="actions">
+          <a class="btn-play" href="games/stack-a-bot/index.html#stackabot">▶ Play</a>
+          <span class="no-lesson">📖 Lesson in the works</span>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="icon">🪞</div>
+        <h3>Laser &amp; Mirrors</h3>
+        <p class="hook">Rotate 45° mirrors to bounce a laser beam onto every target across seven puzzles — the Everyday Light room's reflection game.</p>
+        <p class="concepts">Angle In = Angle Out · Specular Reflection · 90° Beam Turns</p>
+        <p class="room">Everyday Light</p>
+        <div class="actions">
+          <a class="btn-play" href="games/laser-mirrors/laser-mirrors.html">▶ Play</a>
+          <a class="btn-lesson" href="games/laser-mirrors/laser-mirrors-lesson.html">📖 Lesson</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="icon">🎻</div>
+        <h3>Tune the String</h3>
+        <p class="hook">Match the target note with length and tension on the real string formula — and win by killing the beating wobble, the tuner's own method. The Everyday Sound room's game.</p>
+        <p class="concepts">String Frequency f = (1/2L)·√(T/μ) · Beating · Cents</p>
+        <p class="room">Everyday Sound</p>
+        <div class="actions">
+          <a class="btn-play" href="games/tune-the-string/tune-the-string.html">▶ Play</a>
+          <a class="btn-lesson" href="games/tune-the-string/tune-the-string-lesson.html">📖 Lesson</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="icon">🏗️</div>
+        <h3>Shake Table</h3>
+        <p class="hook">Build the tower, brace it if you can afford to, then the quake comes — and the killer is resonance, your tower's own wobble matching the quake's rhythm. The Everyday Engineering room's game.</p>
+        <p class="concepts">Resonance · Natural Frequency · Damping</p>
+        <p class="room">Everyday Engineering</p>
+        <div class="actions">
+          <a class="btn-play" href="games/shake-table/shake-table.html">▶ Play</a>
+          <a class="btn-lesson" href="games/shake-table/shake-table-lesson.html">📖 Lesson</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="icon">💡</div>
+        <h3>Don't Cook the LED</h3>
+        <p class="hook">Pick the resistor that lights the LED without cooking it — Ohm's law with real stakes across seven circuits, including the level where the right value in the wrong wattage still burns. The Everyday Electronics room's game.</p>
+        <p class="concepts">Ohm's Law I = (Vs − Vf)/R · Resistor Power P = I²R · E12 Values</p>
+        <p class="room">Everyday Electronics</p>
+        <div class="actions">
+          <a class="btn-play" href="games/dont-cook-the-led/dont-cook-the-led.html">▶ Play</a>
+          <a class="btn-lesson" href="games/dont-cook-the-led/dont-cook-the-led-lesson.html">📖 Lesson</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="icon">🧮</div>
+        <h3>Wire the Adder</h3>
+        <p class="hook">Wire gates into circuits that actually add — from the one gate that knows XOR up through a half adder, a full adder, and a two-bit adder, graded live against the full truth table. The Everyday Computing room's game.</p>
+        <p class="concepts">Logic Gates · Half &amp; Full Adders · Truth Tables</p>
+        <p class="room">Everyday Computing</p>
+        <div class="actions">
+          <a class="btn-play" href="games/wire-the-adder/wire-the-adder.html">▶ Play</a>
+          <a class="btn-lesson" href="games/wire-the-adder/wire-the-adder-lesson.html">📖 Lesson</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="icon">🔍</div>
+        <h3>Find the Fault</h3>
+        <p class="hook">Four dead machines, six suspects each, and a menu of tests that cost points — diagnose by the pattern of results, and beware the odd result that looks like it belongs to another branch. Nerd Heaven's game.</p>
+        <p class="concepts">Differential Diagnosis · Information Gain · Pattern Over Gates</p>
+        <p class="room">Nerd Heaven</p>
+        <div class="actions">
+          <a class="btn-play" href="games/find-the-fault/find-the-fault.html">▶ Play</a>
+          <a class="btn-lesson" href="games/find-the-fault/find-the-fault-lesson.html">📖 Lesson</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="icon">📚</div>
+        <h3>Shelf It!</h3>
+        <p class="hook">Here's a book — which Dewey section does it shelve in? Here's a number — what lives there? The classification game from A Library.</p>
+        <p class="concepts">Dewey Decimal · Classification · Call Numbers</p>
+        <p class="room">A Library</p>
+        <div class="actions">
+          <a class="btn-play" href="games/shelf-it/dewey-game.html">▶ Play</a>
+          <a class="btn-lesson" href="games/shelf-it/dewey-game-lesson.html">📖 Lesson</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="icon">🧭</div>
+        <h3>Go Thataway</h3>
+        <p class="hook">Navigate by bearing and pace count across five fields where your stride honestly veers — walk the briefed bearing open-loop and land wide, or spend a fix off a landmark and correct your way in. The Map Room's game.</p>
+        <p class="concepts">Dead Reckoning · Bearings &amp; Paces · Fixes &amp; Handrails</p>
+        <p class="room">Map Room</p>
+        <div class="actions">
+          <a class="btn-play" href="games/go-thataway/go-thataway.html">▶ Play</a>
+          <a class="btn-lesson" href="games/go-thataway/go-thataway-lesson.html">📖 Lesson</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="icon">⚖️</div>
+        <h3>Balance It</h3>
+        <p class="hook">Build molecules atom by atom, then balance equations against a live atom ledger — and a balanced-but-reducible answer gets sent back to be halved. The Everyday Chemistry room's game.</p>
+        <p class="concepts">Conservation of Mass · Formulas &amp; Coefficients · Smallest Whole Numbers</p>
+        <p class="room">Everyday Chemistry</p>
+        <div class="actions">
+          <a class="btn-play" href="games/balance-it/balance-it.html">▶ Play</a>
+          <a class="btn-lesson" href="games/balance-it/balance-it-lesson.html">📖 Lesson</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="icon">📨</div>
+        <h3>Pass It On</h3>
+        <p class="hook">Send a message down a channel that corrupts it, and climb from naked digits to a check digit that detects, a parity grid that locates and repairs — and the honest wall where two flips beat the grid. The Secret Squares game.</p>
+        <p class="concepts">Check Digits · Parity · Detection vs Correction</p>
+        <p class="room">Secret Squares</p>
+        <div class="actions">
+          <a class="btn-play" href="games/pass-it-on/pass-it-on.html">▶ Play</a>
+          <a class="btn-lesson" href="games/pass-it-on/pass-it-on-lesson.html">📖 Lesson</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="icon">📦</div>
+        <h3>Route It</h3>
+        <p class="hook">Walk a packet across a small network one next hop at a time — follow the table, pick the cheaper of two roads, re-route when a link drops, escape a stale-table loop before the TTL runs out, and sort a /24 street's local doors from its traps. The Packet Playground's game.</p>
+        <p class="concepts">Next-Hop Routing · TTL &amp; Loops · The /24 Window</p>
+        <p class="room">Packet Playground</p>
+        <div class="actions">
+          <a class="btn-play" href="games/route-it/route-it.html">▶ Play</a>
+          <a class="btn-lesson" href="games/route-it/route-it-lesson.html">📖 Lesson</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="icon">🪙</div>
+        <h3>The Boring Bet Wins</h3>
+        <p class="hook">Three doors with their expected values printed right on them — a small honest edge, a fair coin, and a flashy wheel that bleeds — and a Long Run simulator where the flashy line ruins on schedule. The Decisions Everywhere game.</p>
+        <p class="concepts">Expected Value · Variance · Law of Large Numbers</p>
+        <p class="room">Decisions Everywhere</p>
+        <div class="actions">
+          <a class="btn-play" href="games/the-boring-bet-wins/the-boring-bet-wins.html">▶ Play</a>
+          <a class="btn-lesson" href="games/the-boring-bet-wins/the-boring-bet-wins-lesson.html">📖 Lesson</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="icon">⚓</div>
+        <h3>Anchors</h3>
+        <p class="hook">Estimate real quantities — a mouse, a mug, an elephant, the Moon — against the sizes your hands already know, scored by the factor you missed by, with every truth read back in anchors. The Everyday Measure room's game.</p>
+        <p class="concepts">Fermi Estimation · Ratio Scoring · Orders of Magnitude</p>
+        <p class="room">Everyday Measure</p>
+        <div class="actions">
+          <a class="btn-play" href="games/anchors/anchors.html">▶ Play</a>
+          <a class="btn-lesson" href="games/anchors/anchors-lesson.html">📖 Lesson</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="icon">½</div>
+        <h3>Corrected by Halves</h3>
+        <p class="hook">Ten halving operations in one console — bisect a faulty cable bus, a checksum tree, a Hamming matrix, a commit history, a subnet — built by Gemini Neon and integrated unchanged. Nerd Heaven's guest suite.</p>
+        <p class="concepts">Binary Search · Checksums &amp; Parity · Divide and Conquer</p>
+        <p class="room">Nerd Heaven</p>
+        <div class="actions">
+          <a class="btn-play" href="games/corrected-by-halves/corrected-by-halves.html">▶ Play</a>
+          <a class="btn-lesson" href="games/corrected-by-halves/corrected-by-halves-lesson.html">📖 Lesson</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="icon">⚫</div>
+        <h3>Zenith Othello</h3>
+        <p class="hook">A self-learning Reversi that starts from eleven exact zeros and improves at every game — yours or its own — recreating the program Steven's father Henry wrote for their kitchen-table Heathkit Zenith. Built by Gemini Neon; the learning is audited and real.</p>
+        <p class="concepts">Self-Play Learning · Evaluation Tables · Minimax</p>
+        <p class="room">Games Room</p>
+        <div class="actions">
+          <a class="btn-play" href="games/zenith-othello/zenith-othello.html">▶ Play</a>
+          <a class="btn-lesson" href="games/zenith-othello/zenith-othello-lesson.html">📖 Lesson</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="icon">♞</div>
+        <h3>Zenith Chess</h3>
+        <p class="hook">A self-learning chess engine that starts with every piece worth exactly 1.0 and discovers piece values and square tables from game outcomes alone — perft-verified rules, honestly reported learning. The Othello machine's bigger sibling, built by Gemini Neon.</p>
+        <p class="concepts">Self-Play Learning · Piece-Square Tables · Alpha-Beta Search</p>
+        <p class="room">Games Room</p>
+        <div class="actions">
+          <a class="btn-play" href="games/zenith-chess/zenith-chess.html">▶ Play</a>
+          <a class="btn-lesson" href="games/zenith-chess/zenith-chess-lesson.html">📖 Lesson</a>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <footer>
+    <p>Part of Everyday Cool — the full workshops live at caeled.github.io/everyday-cool ·
+      Free to explore. Built with AI assistance. Curated by a human.</p>
+  </footer>
+
+</div>
+</body>
+</html>

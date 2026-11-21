@@ -1,0 +1,16 @@
+{
+  "dependencies": {
+    "@tauri-apps/plugin-opener": "^2.0.0"
+  },
+  "description": "Everyday Cool Arcade desktop shell (Tauri v2) \u2014 every game in the collection, lessons attached",
+  "devDependencies": {
+    "@tauri-apps/cli": "^2.0.0"
+  },
+  "license": "MIT",
+  "name": "everyday-cool-arcade-kids",
+  "private": true,
+  "scripts": {
+    "tauri": "tauri"
+  },
+  "version": "1.0.0"
+}

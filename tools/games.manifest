@@ -1,0 +1,47 @@
+# Everyday Cool Arcade — game manifest
+# One line per game, pipe-separated:
+#   slug | collection project folder | game file | lesson file (or -) | extra files (comma-separated, or -) | display title
+# Paths are relative to the collection's projects/ directory and the
+# game's own project folder. The game file and its lesson are copied as
+# siblings into dist/games/<slug>/ so the relative links between them
+# (including the in-game lesson pop-ups) work unchanged. Extra files are
+# support files a game page needs (Stack-a-Bot lives inside the Games
+# Room page and brings its scripts and styles along). The display title
+# is the game's name as players see it; tools/sync-dist.sh reads it to
+# generate the Game Documents page (dist/documents.html), so a game
+# added here brings its document link with it.
+siege-demolition|everyday-physics|siege-demolition.html|siege-demolition-lesson.html|-|Siege Slingshot Demolition
+bridge-builder-truss|everyday-physics|bridge-builder-truss.html|bridge-builder-truss-lesson.html|-|Bridge Builder — Truss Stress Sim
+orbital-pinball|everyday-physics|orbital-pinball.html|orbital-pinball-lesson.html|-|Orbital Pinball
+orbital-gravity-golf|everyday-physics|orbital-gravity-golf.html|orbital-gravity-golf-lesson.html|-|Orbital Slingshot — Gravity Golf
+lunar-lander-cave|everyday-physics|lunar-lander-cave.html|lunar-lander-cave-lesson.html|-|Lunar Lander — Thruster Cave
+docking|everyday-physics|docking.html|docking-lesson.html|-|Docking — Orbital Rendezvous
+hill-climb-suspension|everyday-physics|hill-climb-suspension.html|hill-climb-suspension-lesson.html|-|2D Hill-Climb — Suspension Trials
+stage-it|everyday-physics|stage-it.html|stage-it-lesson.html|-|Stage It
+jelly-softbody-platformer|everyday-physics|jelly-softbody-platformer.html|jelly-softbody-platformer-lesson.html|-|Jelly Soft-Body Platformer
+falling-sand-sandbox|everyday-physics|falling-sand-sandbox.html|falling-sand-sandbox-lesson.html|-|Falling Sand — Cellular Physics Lab
+pendulum-grapple-swinger|everyday-physics|pendulum-grapple-swinger.html|pendulum-grapple-swinger-lesson.html|-|Pendulum Grapple Swinger
+marble-run|everyday-physics|marble-run.html|marble-run-lesson.html|-|Marble Run — Rube Goldberg Builder
+ballast|everyday-physics|ballast.html|ballast-lesson.html|-|Ballast
+air-hockey-curl|everyday-physics|air-hockey-curl.html|air-hockey-curl-lesson.html|-|Air Hockey & Curl-Shot Shuffleboard
+ragdoll-archery-duel|everyday-physics|ragdoll-archery-duel.html|ragdoll-archery-duel-lesson.html|-|2D Ragdoll Archery Duel
+pool-table-physics|everyday-physics|pool-table-physics.html|pool-table-physics-lesson.html|-|SVG Pool Table — Angles & Force Lab
+tensor-tris|games-room|tensor-tris.html|tensor-tris-lesson.html|-|Tensor-Tris
+laser-mirrors|everyday-light|laser-mirrors.html|laser-mirrors-lesson.html|-|Laser & Mirrors
+tune-the-string|everyday-sound|tune-the-string.html|tune-the-string-lesson.html|-|Tune the String
+shake-table|everyday-engineering|shake-table.html|shake-table-lesson.html|-|Shake Table
+stack-a-bot|games-room|index.html|-|stackabot.js,app.js,style.css,games-banner.jpg|Stack-a-Bot
+dont-cook-the-led|everyday-electronics|dont-cook-the-led.html|dont-cook-the-led-lesson.html|-|Don't Cook the LED
+wire-the-adder|everyday-computing|wire-the-adder.html|wire-the-adder-lesson.html|-|Wire the Adder
+find-the-fault|nerd-heaven-tech-support|find-the-fault.html|find-the-fault-lesson.html|-|Find the Fault
+shelf-it|a-library|dewey-game.html|dewey-game-lesson.html|-|Shelf It!
+go-thataway|map-room|go-thataway.html|go-thataway-lesson.html|-|Go Thataway
+balance-it|everyday-chemistry|balance-it.html|balance-it-lesson.html|-|Balance It
+pass-it-on|secret-squares|pass-it-on.html|pass-it-on-lesson.html|-|Pass It On
+route-it|packet-playground|route-it.html|route-it-lesson.html|-|Route It
+the-boring-bet-wins|decisions-everywhere|the-boring-bet-wins.html|the-boring-bet-wins-lesson.html|-|The Boring Bet Wins
+catch-the-pass|satellite-watch|catch-the-pass.html|catch-the-pass-lesson.html|-|Catch the Pass
+anchors|everyday-measure|anchors.html|anchors-lesson.html|-|Anchors
+corrected-by-halves|nerd-heaven-tech-support|corrected-by-halves.html|corrected-by-halves-lesson.html|-|Corrected by Halves
+zenith-othello|games-room|zenith-othello.html|zenith-othello-lesson.html|-|Zenith Othello
+zenith-chess|games-room|zenith-chess.html|zenith-chess-lesson.html|-|Zenith Chess
