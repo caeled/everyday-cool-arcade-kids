@@ -45,3 +45,5 @@ anchors|everyday-measure|anchors.html|anchors-lesson.html|-|Anchors
 corrected-by-halves|nerd-heaven-tech-support|corrected-by-halves.html|corrected-by-halves-lesson.html|-|Corrected by Halves
 zenith-othello|games-room|zenith-othello.html|zenith-othello-lesson.html|-|Zenith Othello
 zenith-chess|games-room|zenith-chess.html|zenith-chess-lesson.html|-|Zenith Chess
+robot-rescue-dispatch|everyday-repair|robot-rescue.html|robot-rescue-lesson.html|style.css,engine.js,app.js|Robot Rescue Dispatch
+one-more-clue|everyday-repair|one-more-clue.html|one-more-clue-lesson.html|style.css,engine.js,app.js|One More Clue
